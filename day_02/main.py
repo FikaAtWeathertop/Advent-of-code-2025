@@ -5,15 +5,18 @@ def trav(x, y):
     j = int(y)
     while i < j:
         stringified_i = str(i)
-        if len(stringified_i) % 2 == 0: #even amount of numbers! possible invalid ID
-            middle = int((len(stringified_i)/2))
-            p1 = stringified_i[0:middle]
-            p2 = stringified_i[middle:]
-            
-            if p1 == p2:
+        length = len(stringified_i) #length of number string
+        max_p_l = length // 2 + 1 #because pattern needs to repeat at least twice (t.ex. 20002000: pattern=2000, max_p_l=4, length=8)
+
+        for p_length in range(1, max_p_l): #try all possible pattern lengths
+
+            p = stringified_i[0:p_length] #extract pattern
+
+            #p:2000 length:8 p_length:4 compare:2000
+            if p * (length // p_length) == stringified_i:
                 global sum
                 sum += i
-                #print("Sum: " + str(sum))  
+                break
         i += 1
     print("done")
 
