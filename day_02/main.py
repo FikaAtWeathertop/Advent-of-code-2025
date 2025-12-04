@@ -6,14 +6,15 @@ def trav(x, y):
     while i < j:
         stringified_i = str(i)
         length = len(stringified_i) #length of number string
-        max_p_l = length // 2 + 1 #because pattern needs to repeat at least twice (t.ex. 20002000: pattern=2000, max_p_l=4, length=8)
+        max_p_l = int(length / 2 + 1) #because pattern needs to repeat at least twice (t.ex. 20002000: pattern=2000, max_p_l=4, length=8)
 
         for p_length in range(1, max_p_l): #try all possible pattern lengths
 
             p = stringified_i[0:p_length] #extract pattern
 
             #p:2000 length:8 p_length:4 compare:2000
-            if p * (length // p_length) == stringified_i:
+            # 8 / 4 = 2. 2000 * 2 = 20002000 == stringified_i
+            if int(length / p_length) * p == stringified_i:
                 global sum
                 sum += i
                 break
