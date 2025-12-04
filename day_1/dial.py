@@ -4,16 +4,23 @@ zeroes = 0
 def add(x):
     for _ in range(x):
         global currDialLoc
+        global zeroes
         currDialLoc += 1
         if currDialLoc > 99:
             currDialLoc = 0
+        if currDialLoc == 0:
+            zeroes += 1
     
 def subtract(x):
     for _ in range(x):
         global currDialLoc
+        global zeroes
         currDialLoc -= 1
         if currDialLoc < 0:
             currDialLoc = 99
+        if currDialLoc == 0:
+            zeroes += 1
+
 
 with open("input.txt") as file:
     for line in file:
@@ -28,8 +35,6 @@ with open("input.txt") as file:
         elif letter == "R":
             add(amt)
             print(f"Turned dial {amt} right")
-        if currDialLoc == 0:
-            zeroes += 1
 print(zeroes)
     
 
