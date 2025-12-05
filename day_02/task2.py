@@ -4,7 +4,7 @@ sum = 0
 def trav(x, y):
     i = int(x)
     j = int(y)
-    while i < j:
+    while i <= j:
         stringified_i = str(i)
         length = len(stringified_i)  # length of number string
         max_p_l = int(
@@ -36,4 +36,3 @@ for obj in x:
 
 
 print(sum)
-

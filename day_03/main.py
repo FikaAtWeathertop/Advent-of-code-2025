@@ -1,5 +1,6 @@
 high_1 = 0
 high_2 = 0
+sum_of_highest = 0
 
 with open("test.txt") as file:
     all_lines = []
@@ -7,25 +8,27 @@ with open("test.txt") as file:
         new_line = []
         # this is how you would loop through each alphabet
         for chars in line:
-            if(chars != "\n"):
+            if chars != "\n":
                 new_line.append(int(chars))
         all_lines.append(new_line)
-    
-    
 
     for line in all_lines:
         print(line)
         sorted_line = line.sort()
+        print(type(line))
         print(sorted_line)
 
-
         # for letter in line:
-            
+    print(sorted(all_lines))
+
+    for battery in all_lines:
+        sum_of_highest += int(str(battery[0]) + str(battery[1]))
+
+    print(sum_of_highest)
+
     #         if(letter > high_1):
     #             high_1 = letter
-                
 
-            
 
-#print(all_lines)
-    
+# print(all_lines)
+
